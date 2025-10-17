@@ -1,5 +1,8 @@
 import Navbar from '@/components/Navbar';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
+import LocationSearch from '@/components/LocationSearch';
+import NewsCards from '@/components/NewsCards';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -53,18 +56,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="bg-dark text-white py-4">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <p className="mb-0">&copy; 2025 EQUITEQ. All rights reserved.</p>
-            </div>
-            <div className="col-md-6 text-md-end">
-              <p className="mb-0">Elite Global Investment Bank</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <LocationSearch />
+
+      <NewsCards />
+
+      <Footer />
     </>
   );
 }
