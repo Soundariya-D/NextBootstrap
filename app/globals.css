@@ -106,6 +106,33 @@ a {
   background-color: var(--primary-color);
 }
 
+.testimonial-swiper {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.testimonial-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  opacity: 1;
+  transition: background-color 0.3s;
+}
+
+.testimonial-pagination-bullet-active {
+  background-color: var(--primary-color);
+}
+
+.swiper-pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  margin-top: 30px;
+  position: relative;
+  bottom: 0;
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 1.75rem;
