@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
-import BootstrapClient from '@/components/BootstrapClient';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
 
 export const metadata: Metadata = {
   title: 'EQUITEQ - Elite Global Investment Bank',
@@ -16,8 +18,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
-        <BootstrapClient />
+        <AppRouterCacheProvider>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

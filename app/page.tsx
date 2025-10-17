@@ -1,3 +1,4 @@
+import { Box, Container, Typography, Grid } from '@mui/material';
 import Navbar from '@/components/Navbar';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import LocationSearch from '@/components/LocationSearch';
@@ -9,52 +10,90 @@ export default function Home() {
     <>
       <Navbar />
       
-      <section className="hero-section">
-        <div className="container">
-          <h1 className="hero-title">
+      <Box sx={{ bgcolor: 'background.default', py: 10 }}>
+        <Container maxWidth="lg">
+          <Typography 
+            variant="h3" 
+            component="h1" 
+            sx={{ 
+              fontWeight: 400, 
+              mb: 3, 
+              textAlign: 'center',
+              color: 'text.primary'
+            }}
+          >
             Equiteq is the Elite Global Investment Bank for the Technology Services & Consulting Sector.
-          </h1>
-          <p className="hero-subtitle">
+          </Typography>
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              textAlign: 'center', 
+              color: 'text.secondary',
+              maxWidth: '800px',
+              mx: 'auto'
+            }}
+          >
             Our job is to highlight the company's strengths, the guide shareholders in making the best decisions to secure lasting value.
-          </p>
-        </div>
-      </section>
+          </Typography>
+        </Container>
+      </Box>
 
-      <section className="content-section bg-white">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h2 className="section-title">
+      <Box sx={{ bgcolor: 'background.paper', py: 10 }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={6} alignItems="center">
+            <Grid size={{ xs: 12, lg: 6 }}>
+              <Typography variant="h4" sx={{ fontWeight: 400, mb: 3, color: 'text.primary' }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing
-              </h2>
-              <p className="text-muted">
+              </Typography>
+              <Typography variant="body1" sx={{ color: 'text.secondary', lineHeight: 1.8 }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-            </div>
-            <div className="col-lg-6">
-              <div className="bg-light p-5" style={{ minHeight: '300px' }}>
-                <div className="d-flex align-items-center justify-content-center h-100 text-muted">
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, lg: 6 }}>
+              <Box 
+                sx={{ 
+                  bgcolor: 'background.default', 
+                  p: 5, 
+                  minHeight: '300px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <Typography variant="body1" sx={{ color: 'text.secondary' }}>
                   Image placeholder
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
 
-      <section className="testimonial-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4">
-              <p className="section-label">TESTIMONIALS</p>
-              <h3 className="section-title">Lorem ipsum dolor sit amet</h3>
-            </div>
-            <div className="col-lg-8">
+      <Box sx={{ bgcolor: 'background.default', py: 10 }}>
+        <Container maxWidth="lg">
+          <Grid container spacing={6}>
+            <Grid size={{ xs: 12, lg: 4 }}>
+              <Typography 
+                variant="overline" 
+                sx={{ 
+                  fontSize: '0.75rem', 
+                  letterSpacing: '1.5px',
+                  display: 'block',
+                  mb: 2
+                }}
+              >
+                TESTIMONIALS
+              </Typography>
+              <Typography variant="h5" sx={{ fontWeight: 400, color: 'text.primary' }}>
+                Lorem ipsum dolor sit amet
+              </Typography>
+            </Grid>
+            <Grid size={{ xs: 12, lg: 8 }}>
               <TestimonialCarousel />
-            </div>
-          </div>
-        </div>
-      </section>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
 
       <LocationSearch />
 
