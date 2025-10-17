@@ -124,6 +124,10 @@ Preferred communication style: Simple, everyday language.
 - **@emotion/styled**: Styled components API (required peer dependency for MUI)
 - **Swiper 12.0.0**: Modern carousel/slider library for testimonials with pagination and autoplay
 
+### API & Data Fetching
+- **graphql-request**: Lightweight GraphQL client for API calls
+- **graphql**: GraphQL core library for query definitions
+
 ### Development Tools
 - **TypeScript 5.6.0**: Static type checking and enhanced developer experience
 - **ESLint 9.0.0**: Code quality and consistency enforcement
@@ -134,11 +138,24 @@ Preferred communication style: Simple, everyday language.
 - **@types/react**: React type definitions
 - **@types/react-dom**: React DOM type definitions
 
+### External API Integrations
+
+**GraphQL API Integration (Countries API)**
+- **Problem**: Need to fetch real-time location/country data for search functionality
+- **Solution**: Integrated Countries GraphQL API (https://countries.trevorblades.com/)
+- **Implementation**: 
+  - Using `graphql-request` library for lightweight GraphQL client
+  - Created reusable GraphQL client utility (`lib/graphql-client.ts`)
+  - Search functionality queries countries by name, code, or capital
+  - Client-side filtering for flexible search experience
+- **Rationale**: Public API with no authentication required, comprehensive country data
+- **Pros**: Free, reliable, no API key management, rich dataset
+- **Cons**: Client-side filtering needed (API doesn't support name-based queries)
+
 ### Notes on Missing Integrations
 - **No Database**: Currently static content only; may require Postgres/Drizzle for dynamic content
 - **No Authentication**: Public-facing site with no user login currently
 - **No API Routes**: No backend API endpoints defined yet
-- **No External APIs**: Self-contained application with no third-party service integrations
 - **No Analytics**: No tracking or analytics services configured
 
 ## Recent Changes
@@ -159,3 +176,19 @@ Preferred communication style: Simple, everyday language.
 - Updated layout.tsx with ThemeProvider and AppRouterCacheProvider
 - All components now use Material UI's sx prop for styling
 - Grid v7 uses `size={{ xs: 12, md: 6 }}` syntax instead of separate props
+
+### GraphQL API Integration (October 2025)
+**Implemented Location Search with Countries GraphQL API**
+- Installed `graphql-request` and `graphql` packages for API communication
+- Created GraphQL client utility (`lib/graphql-client.ts`) with:
+  - GraphQL client configuration
+  - Country search query definitions
+  - TypeScript interfaces for type safety
+  - Search function with client-side filtering
+- Updated LocationSearch component with:
+  - Real-time country search by name, code, or capital
+  - Loading states with CircularProgress indicator
+  - Error handling with Alert component
+  - Search results displayed in responsive Card Grid layout
+  - Country details: flag emoji, name, capital, continent, currency
+- API endpoint: https://countries.trevorblades.com/ (public, no auth required)
