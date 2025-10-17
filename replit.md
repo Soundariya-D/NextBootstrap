@@ -19,37 +19,43 @@ Preferred communication style: Simple, everyday language.
 - **Pros**: Built-in routing, optimization, TypeScript support, production-ready
 - **Cons**: Learning curve for App Router patterns
 
-**UI Framework: Bootstrap 5**
-- **Problem**: Need for responsive, professional UI components quickly
-- **Solution**: Bootstrap 5 with custom CSS variables for theming
-- **Rationale**: Well-established component library with extensive documentation
-- **Pros**: Fast development, mobile-responsive, widely supported
-- **Cons**: Generic appearance without heavy customization
+**UI Framework: Material UI (MUI) v7**
+- **Problem**: Need for responsive, professional UI components with modern design
+- **Solution**: Material UI v7 with custom theme configuration
+- **Rationale**: Industry-leading React component library with comprehensive features and excellent TypeScript support
+- **Pros**: 
+  - Modern component design
+  - Excellent accessibility out of the box
+  - Rich ecosystem with icons package
+  - Built-in theming system with sx prop
+  - Full TypeScript support
+  - Grid v2 layout system with responsive size prop
+- **Cons**: Larger bundle size than minimal CSS frameworks
+- **Date Migrated**: October 2025 (from Bootstrap 5)
 
-**Styling Strategy: Hybrid CSS**
-- **Problem**: Balance between Bootstrap components and custom branding
-- **Solution**: Bootstrap for layout/components + Custom CSS for brand identity
+**Styling Strategy: MUI sx Prop + Minimal Custom CSS**
+- **Problem**: Balance between MUI components and custom branding
+- **Solution**: MUI sx prop for component-level styling + minimal global CSS for utilities
 - **Implementation**: 
-  - Global CSS variables for brand colors (black primary, light gray backgrounds)
-  - Custom classes for hero sections, testimonials, and content areas
-  - Bootstrap utilities for spacing and responsive grid
-- **Pros**: Flexibility with consistency
-- **Cons**: Potential for style conflicts
-
-**Client-Side Bootstrap Initialization**
-- **Problem**: Bootstrap JavaScript needs browser environment
-- **Solution**: Separate client component (`BootstrapClient.tsx`) that loads Bootstrap JS
-- **Rationale**: Separates client-side code from server components
-- **Pros**: Clean separation of concerns, no hydration issues
-- **Cons**: Additional component needed
+  - Theme configuration with custom colors (black primary: #000000, secondary green: #003d1a)
+  - MUI sx prop for inline responsive styling
+  - Minimal global CSS only for Swiper carousel customization
+  - Grid v7 with `size` prop for responsive layouts
+- **Pros**: Type-safe styling, scoped styles, no CSS conflicts, responsive by default
+- **Cons**: Inline styles can be verbose for complex components
 
 ### Component Architecture
 
-**Navigation Pattern: Client Component Navbar**
-- **Problem**: Interactive navigation with dropdown and toggle functionality
-- **Solution**: Client-side Navbar component using Next.js Link for routing
+**Navigation Pattern: MUI AppBar Navigation**
+- **Problem**: Interactive navigation with search functionality
+- **Solution**: Client-side Navbar component using MUI AppBar and Next.js Link
 - **Rationale**: Interactive elements require client-side JavaScript
-- **Features**: Responsive collapse menu, Bootstrap integration, Next.js optimized links
+- **Features**: 
+  - MUI AppBar with custom white background
+  - Horizontal navigation links with Button components
+  - Search IconButton for future search functionality
+  - Next.js optimized Link components for routing
+  - Fully responsive design
 
 **Page Structure: Server Components by Default**
 - **Problem**: Maximize performance and SEO
@@ -106,13 +112,16 @@ Preferred communication style: Simple, everyday language.
 ## External Dependencies
 
 ### Core Framework
-- **Next.js 15.1.3**: React framework with server-side rendering, routing, and optimization
+- **Next.js 15.5.6**: React framework with server-side rendering, routing, and optimization
 - **React 19.0.0**: UI library for component-based architecture
 - **React DOM 19.0.0**: React rendering for web
 
 ### UI Framework
-- **Bootstrap 5.3.3**: CSS framework for responsive design and pre-built components
-- **@types/bootstrap**: TypeScript definitions for Bootstrap
+- **@mui/material v7.3.4**: Material UI component library with Grid v2
+- **@mui/icons-material v7.3.4**: Material Design icon components
+- **@mui/material-nextjs**: Material UI integration for Next.js App Router with cache provider
+- **@emotion/react**: CSS-in-JS library (required peer dependency for MUI)
+- **@emotion/styled**: Styled components API (required peer dependency for MUI)
 - **Swiper 12.0.0**: Modern carousel/slider library for testimonials with pagination and autoplay
 
 ### Development Tools
@@ -131,3 +140,22 @@ Preferred communication style: Simple, everyday language.
 - **No API Routes**: No backend API endpoints defined yet
 - **No External APIs**: Self-contained application with no third-party service integrations
 - **No Analytics**: No tracking or analytics services configured
+
+## Recent Changes
+
+### Material UI Migration (October 2025)
+**Replaced Bootstrap 5 with Material UI v7**
+- Removed all Bootstrap dependencies (bootstrap, @types/bootstrap, BootstrapClient.tsx)
+- Installed Material UI packages (@mui/material, @mui/icons-material, @emotion packages)
+- Created custom theme configuration (app/theme.ts) with brand colors
+- Updated all components to use Material UI:
+  - Navbar: Now uses AppBar, Toolbar, Button, IconButton
+  - Page sections: Uses Box, Container, Typography, Grid (v7 with size prop)
+  - LocationSearch: Uses TextField with InputAdornment
+  - NewsCards: Uses Card, CardContent, Grid
+  - Footer: Uses Grid, Button, IconButton with social icons
+  - TestimonialCarousel: Uses MUI Typography with Swiper
+- Simplified global CSS to only include Swiper pagination styles
+- Updated layout.tsx with ThemeProvider and AppRouterCacheProvider
+- All components now use Material UI's sx prop for styling
+- Grid v7 uses `size={{ xs: 12, md: 6 }}` syntax instead of separate props
