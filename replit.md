@@ -57,6 +57,15 @@ Preferred communication style: Simple, everyday language.
 - **Rationale**: Reduces client-side JavaScript bundle size
 - **Pros**: Faster initial load, better SEO, reduced bandwidth
 
+**Testimonial Carousel: Swiper Integration**
+- **Problem**: Need interactive carousel for client testimonials with pagination
+- **Solution**: Swiper carousel library with custom styling
+- **Rationale**: Modern, performant carousel with excellent Next.js/React support
+- **Features**: Auto-play, loop, custom pagination dots, TypeScript support
+- **Implementation**: Client component with Swiper modules (Pagination, Autoplay)
+- **Pros**: No jQuery dependency, modular architecture, mobile-first, SSR compatible
+- **Cons**: Adds ~50KB to bundle (minified)
+
 ### TypeScript Configuration
 
 **Strict Mode Enabled**
@@ -104,6 +113,7 @@ Preferred communication style: Simple, everyday language.
 ### UI Framework
 - **Bootstrap 5.3.3**: CSS framework for responsive design and pre-built components
 - **@types/bootstrap**: TypeScript definitions for Bootstrap
+- **Swiper 12.0.0**: Modern carousel/slider library for testimonials with pagination and autoplay
 
 ### Development Tools
 - **TypeScript 5.6.0**: Static type checking and enhanced developer experience
