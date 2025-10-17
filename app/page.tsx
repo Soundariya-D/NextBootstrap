@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 
 export default function Home() {
   return (
@@ -46,16 +47,7 @@ export default function Home() {
               <h3 className="section-title">Lorem ipsum dolor sit amet</h3>
             </div>
             <div className="col-lg-8">
-              <p className="mb-4">
-                Lorem ipsum dolor sit ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate esse cillum dolore.
-              </p>
-              <div className="testimonial-author">John Doe</div>
-              <div className="testimonial-title">CEO, Example Company</div>
-              <div className="pagination">
-                <span className="pagination-item"></span>
-                <span>/</span>
-                <span className="pagination-item active"></span>
-              </div>
+              <TestimonialCarousel />
             </div>
           </div>
         </div>
